@@ -14,13 +14,13 @@ def total_salary(path):
     try:
         with open(path, 'r', encoding = 'utf-8') as file:
             for line in file:
-                s = int(line.strip().split(',')[1])
+                s = float(line.strip().split(',')[1])
                 salary.append(s)
                 total += s
     except FileNotFoundError:
         print(f"File {path} not found!")
         salary.append(1)
-    return total, total//len(salary)
+    return total, total/len(salary)
 
 total, average = total_salary(file_name)
-print(f"Загальна сума заробітної плати: {total}, середня заробітна плата: {average}")
+print(f"Загальна сума заробітної плати: {total:.2f}, середня заробітна плата: {average:.2f}")
